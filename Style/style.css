@@ -74,6 +74,8 @@ img {
 .hero {
   padding: 60px 0;
   background-color: #f9f9f9;
+  padding-bottom: 80px;
+  
 }
 
 .hero-content {
@@ -107,6 +109,8 @@ img {
   flex: 1;
   text-align: center;
   min-width: 280px;
+  background-image: url("Circle\ design.svg");
+  background-repeat: no-repeat;
 }
 
 
