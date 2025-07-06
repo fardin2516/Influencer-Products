@@ -245,6 +245,7 @@ img {
 
   .nav-links {
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: right;
   }
+
 }
