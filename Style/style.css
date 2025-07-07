@@ -80,11 +80,12 @@ img {
 
 .hero-content {
   display: flex;
+  flex-direction: row; /* side by side on desktop */
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
   gap: 40px;
 }
+
 
 .hero-text {
   flex: 1;
@@ -111,6 +112,7 @@ img {
   min-width: 280px;
   background-image: url("Circle\ design.svg");
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 
@@ -241,7 +243,11 @@ img {
 
 /* === Responsive Design === */
 @media (max-width: 768px) {
-  .hero-content,
+  .hero-content {
+    flex-direction: column-reverse; /* stack vertically on mobile */
+    text-align: center;
+  }
+  
   .featured-content {
     flex-direction: column;
     text-align: center;
