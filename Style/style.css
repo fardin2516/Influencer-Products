@@ -42,8 +42,9 @@ img {
 /* === Header === */
 .header {
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: none;
 }
+
 
 .header .container {
   display: flex;
@@ -253,9 +254,17 @@ img {
     text-align: center;
   }
 
-  .nav-links {
-    flex-wrap: wrap;
-    justify-content: right;
+  .nav-links li {
+    display: none;
   }
 
+  /* Show only the logo and the last li (cart icon) */
+  .nav-links li:last-child {
+    display: inline-block;
+  }
+
+  .header {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* subtle light gray border */
+  }
 }
