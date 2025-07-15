@@ -115,5 +115,71 @@
       </div>
     </div>
   </footer>
+<!-- Add this before closing body tag -->
+<div class="accessibility-widget">
+    <button onclick="toggleHighContrast()" class="btn-access">
+        <i class="fas fa-adjust"></i> Toggle Contrast
+    </button>
+    <div class="font-size-controls">
+        <button onclick="changeFontSize('decrease')" class="btn-access">
+            <i class="fas fa-minus"></i>
+        </button>
+        <button onclick="changeFontSize('increase')" class="btn-access">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+    <button onclick="toggleAIChat()" class="btn-access">
+        <i class="fas fa-robot"></i> AI Assistant
+    </button>
+</div>
+
+<div class="ai-chat-widget" id="aiChat">
+    <div class="chat-header">
+        <h4>AI Assistant</h4>
+        <button onclick="toggleAIChat()" class="close-btn">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Ask me anything...">
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<!-- Add this before closing body tag -->
+<script>
+function toggleHighContrast() {
+    document.body.classList.toggle('high-contrast');
+}
+
+function changeFontSize(action) {
+    const root = document.documentElement;
+    const currentSize = parseFloat(getComputedStyle(root).fontSize);
+    const newSize = action === 'increase' ? currentSize * 1.1 : currentSize * 0.9;
+    root.style.fontSize = `${newSize}px`;
+}
+
+function toggleAIChat() {
+    const chat = document.getElementById('aiChat');
+    chat.classList.toggle('active');
+}
+
+function sendMessage() {
+    const input = document.getElementById('userInput');
+    const messages = document.getElementById('chatMessages');
+    const userMessage = input.value.trim();
+    
+    if (userMessage) {
+        // Add user message
+        messages.innerHTML += `<div class="user-message">${userMessage}</div>`;
+        input.value = '';
+        
+        // Simulate AI response (replace with actual AI integration)
+        setTimeout(() => {
+            messages.innerHTML += `<div class="ai-message">Thanks for your message! I'm here to help.</div>`;
+            messages.scrollTop = messages.scrollHeight;
+        }, 1000);
+    }
+}
+</script>
 </body>
 </html>
